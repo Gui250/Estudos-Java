@@ -1,7 +1,11 @@
 package je04_file;
 
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 
 public class SistemaCadastro {
     public static void main(String[] args) {
@@ -21,6 +25,9 @@ public class SistemaCadastro {
                conteudo.append(cadastro.getValorSugerido() + ";");
                conteudo.append(cadastro.getCliente() + ";");
            }
+           Path arquivoDestino = Paths.get("/Users/guilhermemoreno/Desktop/Estudos-Java/lista-contatos.csv");
+            Files.write(arquivoDestino, conteudo.toString().getBytes());
+
        } catch (Exception err) {
            err.printStackTrace();
        }
